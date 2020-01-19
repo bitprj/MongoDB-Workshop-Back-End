@@ -1,0 +1,22 @@
+{
+  "name": "mongo-workshop-back-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "env-cmd": "^10.0.1",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.1",
+    "mongoose": "^5.8.9",
+    "node": "^13.6.0",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "env-cmd -f ./config/dev.env nodemon src/app.js -e js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
