@@ -14,3 +14,5 @@ mongoose.connect(process.env.MONGODB_URI, {
 	useFindAndModify: false,
     useCreateIndex: true
 })
+
+module.exports = mongoose
