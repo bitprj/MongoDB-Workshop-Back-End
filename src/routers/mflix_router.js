@@ -1,7 +1,7 @@
 const express = require('express')
 const router = new express.Router()
 
-const movies = require('../models/movies_model')
+const movies = require('../models/sample_mflix/movies_model')
 
 //We need to make more routes for different questions. Possibly at least 10
 router.get('/questions/1', async (req, res) => {
