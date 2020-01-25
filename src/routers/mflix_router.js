@@ -2,6 +2,7 @@ const express = require('express')
 const router = new express.Router()
 
 const movies = require('../models/sample_mflix/movies_model')
+const comments = require('../models/sample_mflix/comment_model')
 
 //We need to make more routes for different questions. Possibly at least 10
 router.get('/questions/1', async (req, res) => {
@@ -15,5 +16,18 @@ router.get('/questions/1', async (req, res) => {
     }
     
 })
+
+router.get('/questions/2', async (req, res) => {
+    //We might need to delete this so users can fill in the blanks
+
+    try{
+        const data = await comments.findById('5a9427648b0beebeb6957a08')
+        res.status(200).send(data)
+    }catch(error){
+        res.status(400).send(error)
+    }
+    
+})
+
 
 module.exports = router 
