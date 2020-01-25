@@ -16,6 +16,4 @@ router.get('/questions/1', async (req, res) => {
     
 })
 
-
-
 module.exports = router 
