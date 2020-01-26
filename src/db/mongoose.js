@@ -22,9 +22,16 @@ const airbnbDB = mongoose.createConnection(process.env.MONGODB_URI_AIR_BNB, {
     useCreateIndex: true
 })
 
+const trainingDb = mongoose.createConnection(process.env.MONGODB_URI_TRAINING,{
+    useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useFindAndModify: false,
+    useCreateIndex: true
+})
 
 
 module.exports = {
     mflixDb,
     airbnbDB,
+    trainingDb
 }
