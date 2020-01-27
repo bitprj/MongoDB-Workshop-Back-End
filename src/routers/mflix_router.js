@@ -8,6 +8,7 @@ const user = require('../models/sample_mflix/user_model')
 const theater = require('../models/sample_mflix/theater_model')
 
 //We need to make more routes for different questions. Possibly at least 10
+//Make sure to format what you are sending, meaning send a JSON object containing only answer
 
 //Movies collection
 router.get('/mflix_questions/1', async (req, res) => {
@@ -15,7 +16,8 @@ router.get('/mflix_questions/1', async (req, res) => {
 
     try{
         const data = await movies.findById('573a1390f29313caabcd4135')
-        res.status(200).send(data)
+        res.status(200).send({answer : data.plot[0]})
+        
     }catch(error){
         res.status(400).send(error)
     }
@@ -26,7 +28,7 @@ router.get('/mflix_questions/1', async (req, res) => {
 router.get('/mflix_questions/2', async (req, res) => {
     try{
         const data = await comments.findById('5a9427648b0beebeb6957a08')
-        res.status(200).send(data)
+        res.status(200).send({answer:data.name[0]})
     }catch(error){
         res.status(400).send(error)
     }
@@ -37,7 +39,7 @@ router.get('/mflix_questions/2', async (req, res) => {
 router.get('/mflix_questions/3', async (req, res) => {
     try{
         const data = await user.findById('59b99db5cfa9a34dcd7885b9')
-        res.status(200).send(data)
+        res.status(200).send({answer: data.name[0]})
     }catch(error){
         res.status(400).send(error)
     }
