@@ -16,7 +16,7 @@ router.get('/mflix_questions/1', async (req, res) => {
 
     try{
         const data = await movies.findById('573a1390f29313caabcd4135')
-        res.status(200).send({answer : data.plot[0]})
+        res.status(200).send({answer : data.plot[0], order:1})
         
     }catch(error){
         res.status(400).send(error)
@@ -28,7 +28,7 @@ router.get('/mflix_questions/1', async (req, res) => {
 router.get('/mflix_questions/2', async (req, res) => {
     try{
         const data = await comments.findById('5a9427648b0beebeb6957a08')
-        res.status(200).send({answer:data.name[0]})
+        res.status(200).send({answer:data.name[0], order:2})
     }catch(error){
         res.status(400).send(error)
     }
@@ -39,7 +39,7 @@ router.get('/mflix_questions/2', async (req, res) => {
 router.get('/mflix_questions/3', async (req, res) => {
     try{
         const data = await user.findById('59b99db5cfa9a34dcd7885b9')
-        res.status(200).send({answer: data.name[0]})
+        res.status(200).send({answer: data.name[0], order:3})
     }catch(error){
         res.status(400).send(error)
     }
