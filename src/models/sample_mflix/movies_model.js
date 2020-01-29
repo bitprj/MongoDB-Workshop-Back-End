@@ -1,4 +1,6 @@
-const mongoose = require('../db/mongoose')
+const mongoose = require('mongoose')
+const mongooseDB = require('../../db/mongoose')
+const db = mongooseDB.mflixDb
 
 
 const moveiesSchema = new mongoose.Schema({
@@ -83,6 +85,6 @@ const moveiesSchema = new mongoose.Schema({
         
 }, {collection: 'movies'});
 
-const movies = mongoose.model('movies', moveiesSchema)
+const movies = db.model('movies', moveiesSchema)
 
 module.exports = movies

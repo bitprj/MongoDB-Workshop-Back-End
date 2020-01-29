@@ -8,14 +8,21 @@ const mongoose = require('mongoose')
 //Make a config folder with a dev.env file inside
 //Put MONGODB_URI=link inside, where link is the mongoDB url from atlas
 //please hide all this, including the node_modules inside a .gitignore file
-mongoose.connect(process.env.MONGODB_URI_MFLIX, {
+const mflixDb = mongoose.createConnection(process.env.MONGODB_URI_MFLIX, {
     useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useFindAndModify: false,
     useCreateIndex: true
 })
 
-const secondDb = mongoose.createConnection(process.env.MONGODB_URI_AIR_BNB, {
+const airbnbDB = mongoose.createConnection(process.env.MONGODB_URI_AIR_BNB, {
+    useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useFindAndModify: false,
+    useCreateIndex: true
+})
+
+const trainingDb = mongoose.createConnection(process.env.MONGODB_URI_TRAINING,{
     useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useFindAndModify: false,
@@ -23,5 +30,8 @@ const secondDb = mongoose.createConnection(process.env.MONGODB_URI_AIR_BNB, {
 })
 
 
-
-module.exports = mongoose
+module.exports = {
+    mflixDb,
+    airbnbDB,
+    trainingDb
+}
