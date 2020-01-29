@@ -1,4 +1,5 @@
 const express = require('express')
+const auth = require('../middleware/auth')
 const router = new express.Router()
 
 //Sessions collection not added, I dont think its interesting enough to add - jose
@@ -11,9 +12,9 @@ const theater = require('../models/sample_mflix/theater_model')
 //Make sure to format what you are sending, meaning send a JSON object containing only answer
 
 //Movies collection
-router.get('/mflix_questions/1', async (req, res) => {
+router.get('/mflix_questions/1', auth, async (req, res) => {
     //We might need to delete this so users can fill in the blanks
-
+    console.log('Second')
     try{
         const data = await movies.findById('573a1390f29313caabcd4135')
         res.status(200).send({answer : data.plot[0], order:1})
@@ -50,7 +51,7 @@ router.get('/mflix_questions/3', async (req, res) => {
 router.get('/mflix_questions/4', async (req, res) => {
     try{
         const data = await theater.findById('59a47286cfa9a3a73e51e73b')
-        res.status(200).send(data)
+        res.status(200).send({answer: data.location.address.city[0], order:4})
     }catch(error){
         res.status(400).send(error)
     }
