@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-const bcrypt = require('bcrypt')
->>>>>>> db68132de5c4a5e1c51ccf4331b97a5b1513d24b
 const express = require('express')
 const auth = require('../middleware/auth')
 const mongoose = require('mongoose')
@@ -31,25 +27,9 @@ router.get('/mflix_questions/1', async (req, res) => {
     // })
 
     try{
-<<<<<<< HEAD
         const data = await movies.findById(req.body._id)
         res.status(200).send({answer : data.plot[0], order:1})
         
-=======
-        const data = await movies.findById('573a1390f29313caabcd4135')
-
-        const q1_hashed_answer = "$2b$10$TTn5b5GxInDkg/Dp4QQQuuIRJ/yTjk3EM4nX2KfyKbuvR7Mj/Fzo2"
-        bcrypt.compare(data._id, q1_hashed_answer, res => {
-            if (res) {
-                // turn green
-                console.log("Correct")
-            } else {
-                // turn red or error or stay question mark
-                console.log("Incorrect")
-            }
-        })
-        res.status(200).send({lanswer : data.plot[0], order:1})
->>>>>>> db68132de5c4a5e1c51ccf4331b97a5b1513d24b
     }catch(error){
         res.status(400).send(error)
     }
@@ -123,9 +103,6 @@ router.get('/mflix_questions/4', async (req, res) => {
     
 })
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> db68132de5c4a5e1c51ccf4331b97a5b1513d24b
 module.exports = router 

@@ -2,7 +2,7 @@
   "name": "mongo-workshop-back-end",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "dependencies": {
     "bcrypt": "^3.0.7",
     "cors": "^2.8.5",
