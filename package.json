@@ -17,7 +17,8 @@
   "scripts": {
     "start": "node src/app.js -e js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "env-cmd -f ./config/dev.env nodemon src/app.js -e js"
+    "dev": "env-cmd -f ./config/dev.env nodemon src/app.js -e js",
+    "deploy": "git push heroku master"
   },
   "keywords": [],
   "author": "",
