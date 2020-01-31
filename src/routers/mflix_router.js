@@ -41,16 +41,6 @@ router.get('/mflix_questions/2', async (req, res) => {
     try{
         const data2 = await movies.findById('573a1390f29313caabcd4135')
 
-        const q2_hashed_answer = "$2b$10$TTn5b5GxInDkg/Dp4QQQuuIRJ/yTjk3EM4nX2KfyKbuvR7Mj/Fzo2"
-        bcrypt.compare(data2._id, q2_hashed_answer, res => {
-            if (res) {
-                // turn green
-                console.log("Correct")
-            } else {
-                // turn red or error or stay question mark
-                console.log("Incorrect")
-            }
-        })
         const data = await comments.findById('5a9427648b0beebeb6957a72')
         res.status(200).send({answer:data.name[0], order:2})
     }catch(error){
@@ -65,15 +55,7 @@ router.get('/mflix_questions/3', async (req, res) => {
         const data3 = await movies.findById('')
 
         const q3_hashed_answer = ""
-        bcrypt.compare(data3._id, q3_hashed_answer, res => {
-            if (res) {
-                // turn green
-                console.log("Correct")
-            } else {
-                // turn red or error or stay question mark
-                console.log("Incorrect")
-            }
-        })
+        
         res.status(200).send({answer: data.name[0], order:3})
     }catch(error){
         res.status(400).send(error)
@@ -86,16 +68,7 @@ router.get('/mflix_questions/4', async (req, res) => {
     try{
         const data4 = await movies.findById('')
 
-        const q4_hashed_answer = ""
-        bcrypt.compare(data4._id, q4_hashed_answer, res => {
-            if (res) {
-                // turn green
-                console.log("Correct")
-            } else {
-                // turn red or error or stay question mark
-                console.log("Incorrect")
-            }
-        })
+        
         res.status(200).send({answer: data.location.address.city[0], order:4})
     }catch(error){
         res.status(400).send(error)
