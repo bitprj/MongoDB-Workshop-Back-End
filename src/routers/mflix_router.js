@@ -1,5 +1,11 @@
+<<<<<<< HEAD
+=======
+const bcrypt = require('bcrypt')
+>>>>>>> db68132de5c4a5e1c51ccf4331b97a5b1513d24b
 const express = require('express')
 const auth = require('../middleware/auth')
+const mongoose = require('mongoose')
+const ObjectId = mongoose.Types.ObjectId
 const router = new express.Router()
 
 //Sessions collection not added, I dont think its interesting enough to add - jose
@@ -12,13 +18,38 @@ const theater = require('../models/sample_mflix/theater_model')
 //Make sure to format what you are sending, meaning send a JSON object containing only answer
 
 //Movies collection
-router.get('/mflix_questions/1', auth, async (req, res) => {
+router.get('/mflix_questions/1', async (req, res) => {
     //We might need to delete this so users can fill in the blanks
     console.log('Second')
+    // q1
+    // await bcrypt.hash("573a1390f29313caabcd60e4", 10).then(hash => {
+    //     console.log(hash) // $2b$10$TTn5b5GxInDkg/Dp4QQQuuIRJ/yTjk3EM4nX2KfyKbuvR7Mj/Fzo2
+    // })
+    // // q2
+    // await bcrypt.hash("5a9427648b0beebeb6957a72", 10).then(hash => {
+    //     console.log(hash) // $2b$10$HGcpYpsjhGY4tuRBEuSLA.NswdNZ1UHkzIc1prefgItqPFMVv78m.
+    // })
+
     try{
+<<<<<<< HEAD
         const data = await movies.findById(req.body._id)
         res.status(200).send({answer : data.plot[0], order:1})
         
+=======
+        const data = await movies.findById('573a1390f29313caabcd4135')
+
+        const q1_hashed_answer = "$2b$10$TTn5b5GxInDkg/Dp4QQQuuIRJ/yTjk3EM4nX2KfyKbuvR7Mj/Fzo2"
+        bcrypt.compare(data._id, q1_hashed_answer, res => {
+            if (res) {
+                // turn green
+                console.log("Correct")
+            } else {
+                // turn red or error or stay question mark
+                console.log("Incorrect")
+            }
+        })
+        res.status(200).send({lanswer : data.plot[0], order:1})
+>>>>>>> db68132de5c4a5e1c51ccf4331b97a5b1513d24b
     }catch(error){
         res.status(400).send(error)
     }
@@ -28,7 +59,19 @@ router.get('/mflix_questions/1', auth, async (req, res) => {
 //Comments Collection
 router.get('/mflix_questions/2', async (req, res) => {
     try{
-        const data = await comments.findById('5a9427648b0beebeb6957a08')
+        const data2 = await movies.findById('573a1390f29313caabcd4135')
+
+        const q2_hashed_answer = "$2b$10$TTn5b5GxInDkg/Dp4QQQuuIRJ/yTjk3EM4nX2KfyKbuvR7Mj/Fzo2"
+        bcrypt.compare(data2._id, q2_hashed_answer, res => {
+            if (res) {
+                // turn green
+                console.log("Correct")
+            } else {
+                // turn red or error or stay question mark
+                console.log("Incorrect")
+            }
+        })
+        const data = await comments.findById('5a9427648b0beebeb6957a72')
         res.status(200).send({answer:data.name[0], order:2})
     }catch(error){
         res.status(400).send(error)
@@ -39,7 +82,18 @@ router.get('/mflix_questions/2', async (req, res) => {
 //Users collection
 router.get('/mflix_questions/3', async (req, res) => {
     try{
-        const data = await user.findById('59b99db5cfa9a34dcd7885b9')
+        const data3 = await movies.findById('')
+
+        const q3_hashed_answer = ""
+        bcrypt.compare(data3._id, q3_hashed_answer, res => {
+            if (res) {
+                // turn green
+                console.log("Correct")
+            } else {
+                // turn red or error or stay question mark
+                console.log("Incorrect")
+            }
+        })
         res.status(200).send({answer: data.name[0], order:3})
     }catch(error){
         res.status(400).send(error)
@@ -50,7 +104,18 @@ router.get('/mflix_questions/3', async (req, res) => {
 //Theater collection
 router.get('/mflix_questions/4', async (req, res) => {
     try{
-        const data = await theater.findById('59a47286cfa9a3a73e51e73b')
+        const data4 = await movies.findById('')
+
+        const q4_hashed_answer = ""
+        bcrypt.compare(data4._id, q4_hashed_answer, res => {
+            if (res) {
+                // turn green
+                console.log("Correct")
+            } else {
+                // turn red or error or stay question mark
+                console.log("Incorrect")
+            }
+        })
         res.status(200).send({answer: data.location.address.city[0], order:4})
     }catch(error){
         res.status(400).send(error)
@@ -58,6 +123,9 @@ router.get('/mflix_questions/4', async (req, res) => {
     
 })
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> db68132de5c4a5e1c51ccf4331b97a5b1513d24b
 module.exports = router 

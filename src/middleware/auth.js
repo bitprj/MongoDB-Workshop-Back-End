@@ -1,7 +1,7 @@
-
+var bcrypt = require('bcrypt')
 const auth = async (req, res, next) =>{
-    console.log('first')
-    next();
+    bcrypt.compare("user guess", hash)
+        next();
 }
 
 module.exports = auth
