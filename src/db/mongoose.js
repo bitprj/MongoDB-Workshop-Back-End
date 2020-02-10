@@ -30,8 +30,17 @@ const trainingDb = mongoose.createConnection(process.env.MONGODB_URI_TRAINING,{
 })
 
 
+const suppliesDb = mongoose.createConnection(process.env.MONGODB_URI_SUPPLIES,{
+    useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useFindAndModify: false,
+    useCreateIndex: true
+})
+
+
 module.exports = {
     mflixDb,
     airbnbDB,
-    trainingDb
+    trainingDb,
+    suppliesDb
 }
